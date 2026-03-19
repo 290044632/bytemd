@@ -239,4 +239,16 @@ export interface ViewerProps {
    * https://github.com/remarkjs/remark-rehype
    */
   remarkRehype?: Options
+  /**
+   * Whether to show toolbar
+   *
+   * @defaultValue true
+   */
+  showToolbar?: boolean
+  /**
+   * Whether to show status bar
+   *
+   * @defaultValue true
+   */
+  showStatus?: boolean
 }

@@ -38,6 +38,8 @@
   export let uploadImages: Props['uploadImages'] = undefined
   export let overridePreview: Props['overridePreview'] = undefined
   export let maxLength: NonNullable<Props['maxLength']> = Infinity
+  export let showToolbar: Props['showToolbar'] = true
+  export let showStatus: Props['showStatus'] = true
 
   $: mergedLocale = { ...en, ...locale }
   const dispatch = createEventDispatcher<{ change: { value: string } }>()
@@ -343,6 +345,7 @@
   class:bytemd-fullscreen={fullscreen}
   bind:this={root}
 >
+{#if showToolbar}
   <Toolbar
     {context}
     {split}
@@ -392,6 +395,7 @@
       }
     }}
   />
+{/if}
   <div class="bytemd-body">
     <div class="bytemd-editor" style={styles.edit} bind:this={editorEl} />
     <div bind:this={previewEl} class="bytemd-preview" style={styles.preview}>
@@ -439,6 +443,7 @@
       />
     </div>
   </div>
+  {#if showStatus}
   <Status
     locale={mergedLocale}
     showSync={!overridePreview && split}
@@ -453,4 +458,5 @@
       previewEl.scrollTo({ top: 0 })
     }}
   />
+  {/if}
 </div>

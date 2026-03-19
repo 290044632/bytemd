@@ -18,6 +18,8 @@ export default defineComponent({
     editorConfig: Object,
     locale: Object,
     uploadImages: Function,
+    showToolbar: Boolean,
+    showStatus: Boolean,
   },
   emits: ['change'],
   setup(props, { emit }) {
